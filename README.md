@@ -123,7 +123,7 @@ We encourage the use of these predefined splits when conducting experiments base
 
 ### IDs of retrieved samples
 We use the training split as a retrieval source. For example, when RALF is trained with the PKU, the training split of PKU is used for training and evaluation.
-We provide the pre-computed correspondense using [DreamSim](https://dreamsim-nights.github.io/) in `data_splits/retrieval/<DATASET_NAME>`. The data structure follows below
+We provide the pre-computed correspondense using [DreamSim \[Fu+ NeurIPS2023\]](https://dreamsim-nights.github.io/) in `data_splits/retrieval/<DATASET_NAME>`. The data structure follows below
 ```yaml
 FILENAME:
     - FILENAME top1

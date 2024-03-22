@@ -1,7 +1,7 @@
 # From https://github.com/microsoft/LayoutGeneration/blob/main/LayoutFormer%2B%2B/src/model/layout_transformer/constrained_decoding.py
 # coding=utf8
-import math
 import copy
+import math
 from math import ceil, floor
 from typing import List, Set
 
@@ -553,9 +553,7 @@ class TransformerSortByDictRelationConstraint(TransformerSortByDictLabelConstrai
 
                     plausible_intersect = self.plausible_tokens()
 
-                    for rdx, (rel_type, tgt_ele_idx) in enumerate(
-                        relation_constraints
-                    ):
+                    for rdx, (rel_type, tgt_ele_idx) in enumerate(relation_constraints):
 
                         if current_elem == "Cy" and rel_type == "canvas":
                             # Canvas constraint is only implemented for Cy
@@ -567,9 +565,7 @@ class TransformerSortByDictRelationConstraint(TransformerSortByDictLabelConstrai
                                 max_h = floor(self.canvas_size / 3 - half_height)
                             elif rel_type == RelLoc.CENTER:  # ok
                                 min_h = ceil(1 * self.canvas_size / 3 + half_height)
-                                max_h = floor(
-                                    2 * self.canvas_size / 3 - half_height
-                                )
+                                max_h = floor(2 * self.canvas_size / 3 - half_height)
                             elif rel_type == RelLoc.BOTTOM:  # ok
                                 min_h = ceil(2 * self.canvas_size / 3 + half_height)
                                 max_h = floor(self.canvas_size - half_height)
@@ -623,23 +619,15 @@ class TransformerSortByDictRelationConstraint(TransformerSortByDictLabelConstrai
                                 # Location
                                 if rel_type == RelLoc.LEFT:  # ok?
                                     max_cx = ceil(self.canvas_size - curr_width / 2)
-                                    min_cx = floor(
-                                        tgt_cx + tgt_w / 2 + curr_width / 2
-                                    )
+                                    min_cx = floor(tgt_cx + tgt_w / 2 + curr_width / 2)
                                     diff = set(range(min_cx, max_cx))
                                 elif rel_type == RelLoc.RIGHT:  # ok?
-                                    max_cx = ceil(
-                                        tgt_cx - tgt_w / 2 - curr_width / 2
-                                    )
+                                    max_cx = ceil(tgt_cx - tgt_w / 2 - curr_width / 2)
                                     min_cx = floor(curr_width / 2)
                                     diff = set(range(min_cx, max_cx))
                                 elif rel_type == RelLoc.CENTER:  # ok?
-                                    max_cx = floor(
-                                        tgt_cx + tgt_w / 2 - curr_width / 2
-                                    )
-                                    min_cx = ceil(
-                                        tgt_cx - tgt_w / 2 + curr_width / 2
-                                    )
+                                    max_cx = floor(tgt_cx + tgt_w / 2 - curr_width / 2)
+                                    min_cx = ceil(tgt_cx - tgt_w / 2 + curr_width / 2)
                                     diff = set(range(min_cx, max_cx))
                                 else:
                                     max_cx = ceil(self.canvas_size - curr_width / 2)
@@ -671,9 +659,7 @@ class TransformerSortByDictRelationConstraint(TransformerSortByDictLabelConstrai
                                         min_h = ceil(
                                             2 * self.canvas_size / 3 + half_height
                                         )
-                                        max_h = floor(
-                                            self.canvas_size - half_height
-                                        )
+                                        max_h = floor(self.canvas_size - half_height)
                                     else:
                                         raise ValueError(
                                             f"Unknown rel_type: {rel_type}"
@@ -686,31 +672,19 @@ class TransformerSortByDictRelationConstraint(TransformerSortByDictLabelConstrai
                                     half_curr_h = curr_height / 2
 
                                     if rel_type == RelLoc.TOP:  # ok?
-                                        max_cy = ceil(
-                                            self.canvas_size - half_curr_h
-                                        )
-                                        min_cy = floor(
-                                            tgt_cy + tgt_h / 2 + half_curr_h
-                                        )
+                                        max_cy = ceil(self.canvas_size - half_curr_h)
+                                        min_cy = floor(tgt_cy + tgt_h / 2 + half_curr_h)
                                         diff = set(range(min_cy, max_cy))
                                     elif rel_type == RelLoc.BOTTOM:  # ok?
-                                        max_cy = ceil(
-                                            tgt_cy - tgt_h / 2 - half_curr_h
-                                        )
+                                        max_cy = ceil(tgt_cy - tgt_h / 2 - half_curr_h)
                                         min_cy = floor(half_curr_h)
                                         diff = set(range(min_cy, max_cy))
                                     elif rel_type == RelLoc.CENTER:  # ok?
-                                        max_cy = floor(
-                                            tgt_cy + tgt_h / 2 + half_curr_h
-                                        )
-                                        min_cy = ceil(
-                                            tgt_cy - tgt_h / 2 - half_curr_h
-                                        )
+                                        max_cy = floor(tgt_cy + tgt_h / 2 + half_curr_h)
+                                        min_cy = ceil(tgt_cy - tgt_h / 2 - half_curr_h)
                                         diff = set(range(min_cy, max_cy))
                                     else:
-                                        max_cy = ceil(
-                                            self.canvas_size - half_curr_h
-                                        )
+                                        max_cy = ceil(self.canvas_size - half_curr_h)
                                         min_cy = floor(curr_height / 2)
                                         diff = set(range(min_cy, max_cy))
 
@@ -722,9 +696,7 @@ class TransformerSortByDictRelationConstraint(TransformerSortByDictLabelConstrai
                                 # Location
                                 if rel_type == RelLoc.LEFT:  # ok?
                                     min_w = 0
-                                    max_w = ceil(
-                                        self.canvas_size - tgt_cx - tgt_w / 2
-                                    )
+                                    max_w = ceil(self.canvas_size - tgt_cx - tgt_w / 2)
                                     diff = set(range(min_w, max_w))
                                 elif rel_type == RelLoc.RIGHT:  # ok?
                                     min_w = 0

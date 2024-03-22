@@ -154,6 +154,7 @@ def render_input_output(input, output, features, input_img):
 
     return output
 
+
 @hydra.main(version_base="1.2", config_name="test_config")
 def main(test_cfg: DictConfig) -> None:
     logger.info(test_cfg)
@@ -474,7 +475,7 @@ def main(test_cfg: DictConfig) -> None:
                 data["inputs"] = inputs
 
             # make sure .pkl can be loaded without reference to the original code.
-            for (k, v) in data.items():
+            for k, v in data.items():
                 if isinstance(v, DictConfig):
                     data[k] = OmegaConf.to_container(v)  # save as dict
             logger.info(f"Save pickle file to {pkl_file}.")

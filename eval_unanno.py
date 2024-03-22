@@ -23,7 +23,6 @@ from image2layout.train.helpers.rich_utils import get_progress
 from image2layout.train.helpers.util import set_seed
 from omegaconf import OmegaConf
 
-
 logger = logging.getLogger(__name__)
 
 

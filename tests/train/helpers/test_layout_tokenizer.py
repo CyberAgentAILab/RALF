@@ -27,7 +27,7 @@ def _setup_dummy_cfg() -> dict[str, Any]:
         "special_tokens": special_tokens,
         "pad_until_max": pad_until_max,
     }
-    for (key, seq) in CHOICES.items():
+    for key, seq in CHOICES.items():
         data[key] = random.choice(seq)  # type: ignore
     return data
 

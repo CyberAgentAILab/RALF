@@ -129,7 +129,7 @@ class LayoutTokenizer:
         logger.info(f"Initialize {self.__class__.__name__} with {num_bin=}")
 
         # validation
-        for (key, seq) in CHOICES.items():
+        for key, seq in CHOICES.items():
             assert getattr(self, f"_{key}") in seq  # type: ignore
 
         assert "pad" in self.special_tokens
@@ -177,7 +177,7 @@ class LayoutTokenizer:
         To do so, just add some padding tokens at the end of each sequence.
         """
         if self._pad_until_max:
-            for (key, value) in inputs.items():
+            for key, value in inputs.items():
                 inputs[key] = _pad_sequence(value, self.max_seq_length)
         return inputs
 

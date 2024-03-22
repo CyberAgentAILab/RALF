@@ -13,6 +13,7 @@ The example is a dict and expected to have the following keys.
 - saliency
 
 """
+
 import random
 from typing import Any
 
@@ -26,7 +27,7 @@ def reorganize(inputs: dict, indexes: list[int]) -> dict:
     assert isinstance(inputs, dict)
     assert isinstance(indexes, list)
 
-    for (key, value) in inputs.items():
+    for key, value in inputs.items():
         if key in ["transforms", "retrieved", "id"]:
             continue
 

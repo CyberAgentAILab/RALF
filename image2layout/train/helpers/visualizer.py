@@ -143,6 +143,7 @@ def save_image(
         else:
             return image
 
+
 def mask_out_bbox_area(images, bboxes):
     # images: [batch_size, 3, height, width]
     # bboxes: [batch_size, max_elem, 4], with [top-left x, top-left y, bottom-right x, bottom-right y]

@@ -272,7 +272,7 @@ def _compute_perceptual_iou(
         for x in convert_xywh_to_ltrb(unique_box_1.T)
     ]
     canvas = np.zeros((N, N))
-    for (l, t, r, b) in zip(l1, t1, r1, b1):
+    for l, t, r, b in zip(l1, t1, r1, b1):
         canvas[t:b, l:r] = 1
     global_area_union = canvas.sum() / (N**2)
 
@@ -447,7 +447,7 @@ def __compute_underlay_effectiveness(
 
     # mask out iou between underlays
     underlay_inds = [i for (i, id_) in enumerate(label) if id_ == underlay_id]
-    for (i, j) in itertools.product(underlay_inds, underlay_inds):
+    for i, j in itertools.product(underlay_inds, underlay_inds):
         mask[i, j] = False
 
     loose_scores, strict_scores = [], []
@@ -544,7 +544,7 @@ def compute_saliency_aware_metrics(
         bottom = (yb[i][mask] * H).round().int().tolist()
 
         bbox_mask = torch.zeros((H, W))
-        for (l, t, r, b) in zip(left, top, right, bottom):
+        for l, t, r, b in zip(left, top, right, bottom):
             bbox_mask[t:b, l:r] = 1
 
         # utilization
@@ -566,11 +566,11 @@ def compute_saliency_aware_metrics(
         bbox_mask_special = torch.zeros((H, W))
         label = batch["label"][i].tolist()
 
-        for (id_, l, t, r, b) in zip(label, left, top, right, bottom):
+        for id_, l, t, r, b in zip(label, left, top, right, bottom):
             # get text area
             if id_ == text_id:
                 bbox_mask_special[t:b, l:r] = 1
-        for (id_, l, t, r, b) in zip(label, left, top, right, bottom):
+        for id_, l, t, r, b in zip(label, left, top, right, bottom):
             # subtract underlay area
             if id_ == underlay_id:
                 bbox_mask_special[t:b, l:r] = 0
@@ -725,7 +725,7 @@ def compute_rshm(
         bottom = (yb[i][mask] * H).round().int().tolist()
 
         bbox_mask = torch.full((1, H, W), fill_value=False)
-        for (l, t, r, b) in zip(left, top, right, bottom):
+        for l, t, r, b in zip(left, top, right, bottom):
             bbox_mask[:, t:b, l:r] = True
         layout_masks.append(bbox_mask)
     layout_masks = torch.stack(layout_masks)  # type: ignore

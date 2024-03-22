@@ -83,10 +83,7 @@ def main():
     }
 
     train_dataloader = DataLoader(
-        dataset["train"],
-        shuffle=True,
-        batch_size=args.batch_size,
-        **kwargs
+        dataset["train"], shuffle=True, batch_size=args.batch_size, **kwargs
     )
     val_dataloader = DataLoader(
         dataset["val"],
@@ -250,7 +247,7 @@ def main():
                                 ),
                             )
                         )
-                        for (key, (batch_labels, batch_bboxes, batch_masks)) in data:
+                        for key, (batch_labels, batch_bboxes, batch_masks) in data:
                             B = batch_labels.size(0)
                             save_image(
                                 batch_images=torch.ones((B, 4, vis_H, vis_W)),

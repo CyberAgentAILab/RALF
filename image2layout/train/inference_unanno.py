@@ -54,6 +54,7 @@ ds.disable_caching()
 
 cs = init_test_config_store()
 
+
 def read_image(path):
     img_pil = Image.open(path).convert("RGB").resize((513, 750), Image.LANCZOS)
     img = tvF.to_tensor(img_pil)
@@ -374,7 +375,7 @@ def main(test_cfg: DictConfig) -> None:
                 data["inputs"] = inputs
 
             # make sure .pkl can be loaded without reference to the original code.
-            for (k, v) in data.items():
+            for k, v in data.items():
                 if isinstance(v, DictConfig):
                     data[k] = OmegaConf.to_container(v)  # save as dict
             logger.info(f"Save pickle file to {pkl_file}.")

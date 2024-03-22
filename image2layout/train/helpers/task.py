@@ -8,10 +8,10 @@ from image2layout.train.models.common.base_model import (
     ConditionalInputsForDiscreteLayout,
     RetrievalAugmentedConditionalInputsForDiscreteLayout,
 )
+
 from .layout_tokenizer import LayoutSequenceTokenizer
 from .mask import sample_mask
 from .relationships import compute_relation
-
 
 REFINEMENT_NOISE_STD = 0.01  # std of noise for refinement
 EDGE_RATIO = 0.1
@@ -40,7 +40,6 @@ VARS = {
     "refinement": ["label", "width", "height", "center_x", "center_y"],
     "partial": ["label", "width", "height", "center_x", "center_y"],
 }
-
 
 
 def get_condition(
@@ -158,7 +157,7 @@ def get_condition(
         index = repeat(torch.arange(S), "s -> b s", b=B)
         if "bos" in special_keys:
             index = index - 1
-    
+
         cond = {
             "seq": new_cond["seq"],
             "mask": cond["mask"],  # In refinement, all tokens are valid.

@@ -1,0 +1,3 @@
+_target_: image2layout.train.schedulers.MultiStepLRScheduler
+_partial_: true
+milestones: [0.7, ]  # e.g., scheduler.milestones=[0.9] scheduler.milestones=[0.9, 0.95]

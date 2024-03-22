@@ -1,0 +1,4 @@
+_target_: image2layout.train.models.generator.ICVTGenerator
+_partial_: true
+d_model: 200
+ga_type: concat

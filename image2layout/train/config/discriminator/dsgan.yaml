@@ -1,0 +1,2 @@
+_target_: image2layout.train.models.dsgan.DSDiscriminator
+_partial_: true

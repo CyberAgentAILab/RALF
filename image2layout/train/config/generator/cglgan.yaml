@@ -1,0 +1,2 @@
+_target_: image2layout.train.models.generator.CGLGenerator
+_partial_: true

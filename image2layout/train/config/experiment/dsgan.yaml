@@ -1,0 +1,18 @@
+# @package _global_
+
+defaults:
+  - override /generator: dsgan
+  - override /discriminator: dsgan
+  - override /optimizer: adam
+  - override /scheduler: dsgan
+
+data:
+  transforms: [image, shuffle]
+
+training:
+  epochs: 300
+  batch_size: 128
+  lr: 1e-4
+  warmup_dis_epoch: 100
+  clip_max_norm: 0.0
+  save_tmp_model_epoch: 500

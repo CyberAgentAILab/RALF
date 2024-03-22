@@ -1,0 +1,16 @@
+# @package _global_
+defaults:
+  - override /generator: layoutdm_ra
+  - override /scheduler: reduce_lr_on_plateau
+
+data:
+  transforms: [image, shuffle]
+  tokenization: true
+tokenizer:
+  special_tokens: ["pad", "mask"]
+  geo_quantization: "kmeans"
+  num_bin: 32
+optimizer:
+  weight_decay: 1e-1
+training:
+  lr: 5e-4

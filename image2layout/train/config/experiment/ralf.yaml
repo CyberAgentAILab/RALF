@@ -1,0 +1,18 @@
+# @package _global_
+
+defaults:
+  - override /generator: ralf
+  - override /scheduler: multi_step_lr
+
+data:
+  transforms: [image,sort_label,sort_lexicographic]
+  tokenization: true
+
+training:
+  epochs: 50
+  batch_size: 32
+  lr: 1e-4
+  clip_max_norm: 0.1
+
+optimizer:
+  weight_decay: 1e-4

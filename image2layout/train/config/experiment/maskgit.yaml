@@ -1,0 +1,10 @@
+# @package _global_
+defaults:
+  - override /generator: maskgit
+  - override /scheduler: multi_step_lr
+
+data:
+  transforms: [image, shuffle]
+  tokenization: true
+tokenizer:
+  special_tokens: ["pad", "mask"]

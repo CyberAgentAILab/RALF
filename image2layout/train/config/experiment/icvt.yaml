@@ -1,0 +1,18 @@
+# @package _global_
+
+defaults:
+  - override /generator: icvt
+  - override /optimizer: adamw
+  - override /scheduler: multi_step_lr
+
+data:
+  transforms: [image, sort_label, sort_lexicographic]
+
+# training:
+#   epochs: 300
+#   batch_size: 128
+#   lr: 1e-4
+#   save_tmp_model_epoch: 301
+
+# scheduler:
+#   milestones: [0.667, ]

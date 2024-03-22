@@ -1,0 +1,2 @@
+_target_: image2layout.train.schedulers.DSGANScheduler
+_partial_: true

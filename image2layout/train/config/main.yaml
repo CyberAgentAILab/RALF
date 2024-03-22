@@ -1,0 +1,25 @@
+defaults:
+  - dataset: pku10
+  - training: config_training_default  # see TrainingConfig
+  - optimizer: adamw
+  - scheduler: void
+  - generator: default
+  - discriminator: dummy
+  - data: config_data_default  # see DataConfig
+  - tokenizer: config_tokenizer_default  # see TokenizerConfig
+  - sampling: random
+  - override hydra/hydra_logging: none
+  - override hydra/job_logging: none
+  # https://hydra.cc/docs/upgrades/1.0_to_1.1/default_composition_order/
+  - _self_
+
+job_dir: ???
+seed: ???
+use_ddp: false
+debug: false
+run_on_local: true
+hydra:
+  run:
+    dir: /tmp/hydra-runs/run/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: /tmp/hydra-runs/sweep/${now:%Y-%m-%d_%H-%M-%S}

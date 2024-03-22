@@ -1,0 +1,2 @@
+_target_: image2layout.train.models.generator.DSGenerator
+_partial_: true

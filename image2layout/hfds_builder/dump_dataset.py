@@ -87,7 +87,9 @@ def main() -> None:
     }
 
     data = defaultdict(list)
-    for sample in tqdm(reader(args.dataset_root), desc="Transforming dataset (e.g., resizing images)"):
+    for sample in tqdm(
+        reader(args.dataset_root), desc="Transforming dataset (e.g., resizing images)"
+    ):
         record = _make_record(sample, **kwargs)
         id_ = record["identifier"]
         if id_ in identifier_split_mapping:

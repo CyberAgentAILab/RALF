@@ -96,9 +96,7 @@ class RetrievalCrossDatasetWrapper(torch.utils.data.Dataset):
             ), f"{len(retrieved_indexes)=} != {self.top_k=}"
             retrieved_data = [self.db_dataset[_idx] for _idx in retrieved_indexes]
             assert len(retrieved_data) == self.top_k
-            retrieved[
-                "index"
-            ] = retrieved_indexes
+            retrieved["index"] = retrieved_indexes
             for key in self.keys:
                 if key == "mask":
                     tensor = torch.tensor(

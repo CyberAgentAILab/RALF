@@ -1,23 +1,21 @@
 import argparse
 import logging
-import torch
-
-from pathlib import Path
-from PIL import Image
-from typing import Any
 import os
+from pathlib import Path
+from typing import Any
+
+import numpy as np
+import torch
 import torch.nn as nn
-from torch import Tensor
 import torch.nn.functional as F
-from torchvision.utils import save_image
+from models.saliency.basnet import BASNet, RescaleT, ToTensorLab
+from models.saliency.isnet import ISNetDIS
+from PIL import Image
+from torch import Tensor
 from torchvision import transforms
 from torchvision.transforms import ToTensor
 from torchvision.transforms.functional import normalize
-import numpy as np
-
-
-from models.saliency.basnet import BASNet, RescaleT, ToTensorLab
-from models.saliency.isnet import ISNetDIS
+from torchvision.utils import save_image
 
 logger = logging.getLogger(__name__)
 

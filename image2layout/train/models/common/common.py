@@ -51,11 +51,8 @@ class BaseDecoder(nn.Module):
         if d_model != 256:
             self.use_paramter_ablation = True
 
-            self.memory_dim_converter = nn.Linear(
-                256,
-                d_model,
-                bias=False)
-        
+            self.memory_dim_converter = nn.Linear(256, d_model, bias=False)
+
         n_params = sum([p.numel() for p in self.parameters()]) / 1e6
         logger.info(
             f"BaseDecoder: {pos_emb=}, {d_model=}, {d_label=}, {num_layers=}, {nhead=}, {n_params=}, {self.use_paramter_ablation=}"

@@ -86,7 +86,9 @@ class DSGenerator(BaseGANGenerator):
             coef: list[float] = [0.8, 1.0, 1.0, 0.1]
         elif num_cls == 5:
             coef: list[float] = [0.8, 0.8, 1.0, 1.0, 0.1]
-        assert apply_weight is False, f"{apply_weight=} is not supported. Please read https://github.com/PKU-ICST-MIPL/PosterLayout-CVPR2023/issues/17."
+        assert (
+            apply_weight is False
+        ), f"{apply_weight=} is not supported. Please read https://github.com/PKU-ICST-MIPL/PosterLayout-CVPR2023/issues/17."
         super(DSGenerator, self).__init__(
             d_model=d_model,
             apply_weight=apply_weight,

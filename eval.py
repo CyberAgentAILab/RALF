@@ -28,7 +28,7 @@ from image2layout.train.helpers.metric import (
 )
 from image2layout.train.helpers.rich_utils import CONSOLE, get_progress
 from image2layout.train.helpers.task import REFINEMENT_NOISE_STD
-from image2layout.train.helpers.util import set_seed, box_cxcywh_to_xyxy
+from image2layout.train.helpers.util import box_cxcywh_to_xyxy, set_seed
 from image2layout.train.helpers.visualizer import mask_out_bbox_area
 from omegaconf import OmegaConf
 from torch import Tensor

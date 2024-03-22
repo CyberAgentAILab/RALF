@@ -145,6 +145,7 @@ def preprocess_retriever(
         torch.save(RESULT, cache_path)
         print(f"Save: {cache_path}")
 
+
 if __name__ == "__main__":
     main()
 

@@ -20,6 +20,7 @@ def box_cxcywh_to_xyxy(x: Tensor) -> Tensor:
     b = [(x_c - 0.5 * w), (y_c - 0.5 * h), (x_c + 0.5 * w), (y_c + 0.5 * h)]
     return torch.stack(b, dim=-1)
 
+
 # https://stackoverflow.com/questions/3382352/equivalent-of-numpy-argsort-in-basic-python
 def argsort(x: list[Union[int, float]]) -> list[int]:
     assert isinstance(x, list) and isinstance(x[0], (int, float))

@@ -168,4 +168,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
     r = args.root
     export_score_as_csv(r)
-

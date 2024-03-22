@@ -45,7 +45,7 @@ def load_k_scores(ROOT):
         assert (
             metric_name == METRICS
         ), f"{metric_name} != {METRICS}, \ndiff={set(metric_name) - set(METRICS)})\n{ROOT=}"
-    
+
         test_score = _score[15:25]
         test_score = {_k: _v for _k, _v in zip(METRICS, test_score)}
         # val_score = {_k: _v for _k, _v in zip(METRICS, val_score)}
@@ -145,4 +145,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
     r = args.root
     export_score_as_csv(r)
-

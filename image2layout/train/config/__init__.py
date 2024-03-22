@@ -1,6 +1,7 @@
 """
 A file to declare dataclass instances used for hydra configs at ./config/*
 """
+
 from dataclasses import dataclass
 from typing import Any, Optional, Union
 

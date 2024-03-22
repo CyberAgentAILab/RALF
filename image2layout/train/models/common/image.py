@@ -23,6 +23,7 @@ RESNET_WEIGHT = {
     "resnet50": torchvision.models.ResNet50_Weights.IMAGENET1K_V2,
 }
 
+
 class ResnetBackbone(nn.Module):
     def __init__(
         self,
@@ -53,7 +54,9 @@ class ResnetBackbone(nn.Module):
             if not fs.exists(path_prefix):
                 cache_path = os.path.join(PRECOMPUTED_WEIGHT_DIR, cache_path)
                 fs, path_prefix = fsspec.core.url_to_fs(cache_path)
-                assert fs.exists(path_prefix), f"{path_prefix} does not exist. Please run 'poetry run gdown --id 1cT_FB6PlcgPysJeYsXJ5rdiy96eF7hSm -O ./cache/PRECOMPUTED_WEIGHT_DIR' to download the weight file."
+                assert fs.exists(
+                    path_prefix
+                ), f"{path_prefix} does not exist. Please run 'poetry run gdown --id 1cT_FB6PlcgPysJeYsXJ5rdiy96eF7hSm -O ./cache/PRECOMPUTED_WEIGHT_DIR' to download the weight file."
             with fs.open(path_prefix, "rb") as f:
                 resnet_weight = torch.load(f)
             log = resnet.load_state_dict(resnet_weight)

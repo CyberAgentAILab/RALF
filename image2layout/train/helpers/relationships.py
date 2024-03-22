@@ -135,7 +135,7 @@ def compute_relation(
     for b in range(B):
         n = num_element[b]
         cnt = 0
-        for (i, j) in combinations(range(S + 1), 2):
+        for i, j in combinations(range(S + 1), 2):
             # ignore relation between dummy element and any
             if n <= i or n <= j:
                 continue

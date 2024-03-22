@@ -39,7 +39,7 @@ class _BaseConditionalInputs:
         """
         Tensor dtype and/or device conversion at once for all tensor-like attributes.
         """
-        for (name, attr) in self.tensor_like_attributes():
+        for name, attr in self.tensor_like_attributes():
             setattr(self, name, attr.to(x))
         return self
 
@@ -48,7 +48,7 @@ class _BaseConditionalInputs:
         Duplicate the batch dimension for n times.
         This is usually used to sample multiple outputs per sample.
         """
-        for (name, attr) in self.tensor_like_attributes():
+        for name, attr in self.tensor_like_attributes():
             setattr(self, name, repeat(attr, "b ... -> (b n) ...", n=n))
         return self
 
@@ -100,7 +100,7 @@ class RetrievalAugmentedConditionalInputsForDiscreteLayout(
         )  # type: ignore
 
     def to(self, x: Any) -> "RetrievalAugmentedConditionalInputsForDiscreteLayout":
-        for (name, attr) in self.tensor_like_attributes():
+        for name, attr in self.tensor_like_attributes():
             setattr(self, name, attr.to(x))
         # self.retrieved is a dict of tensors
         for k, v in self.retrieved.items():

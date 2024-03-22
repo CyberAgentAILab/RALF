@@ -3,14 +3,14 @@
 
 import os
 import sys
-import torch
-import numpy as np
-import cv2
 from typing import Union
+from urllib.parse import urlparse
 
+import cv2
+import numpy as np
+import torch
 from PIL import Image
 from torch.hub import download_url_to_file, get_dir
-from urllib.parse import urlparse
 
 LAMA_MODEL_URL = os.environ.get(
     "LAMA_MODEL_URL",
@@ -39,7 +39,11 @@ class SimpleLama:
         self.model.to(device)
         self.device = device
 
-    def __call__(self, image: Union[Image.Image, np.ndarray], mask: Union[Image.Image, np.ndarray]):
+    def __call__(
+        self,
+        image: Union[Image.Image, np.ndarray],
+        mask: Union[Image.Image, np.ndarray],
+    ):
         image, mask = prepare_img_and_mask(image, mask, self.device)
 
         with torch.inference_mode():

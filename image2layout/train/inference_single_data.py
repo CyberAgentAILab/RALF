@@ -193,7 +193,7 @@ def main(test_cfg: DictConfig) -> None:
 
     TABLE_DATAID_TO_IDX = torch.load(cache_table_path)[test_cfg.test_split]
 
-    if test_cfg.sample_id is None or test_cfg.sample_id == "None": 
+    if test_cfg.sample_id is None or test_cfg.sample_id == "None":
         DATA_ID = "O1CN010wAX8U1i1ilTbsxmg_!!6000000004353-0-yinhe"  # for example
         SAMPLE_IDX = TABLE_DATAID_TO_IDX[DATA_ID]
     else:

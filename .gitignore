@@ -239,5 +239,3 @@ poetry.lock
 model_weight
 configs
 .config
-
-image2layout/preprocess_dataset/pretrained_weights

@@ -1,6 +1,5 @@
 import argparse
 import logging
-import os
 from pathlib import Path
 from typing import Any
 
@@ -16,11 +15,13 @@ from torchvision import transforms
 from torchvision.transforms import ToTensor
 from torchvision.transforms.functional import normalize
 from torchvision.utils import save_image
+from tqdm import tqdm
 
 logger = logging.getLogger(__name__)
 
 
-WEIGHT_ROOT = Path(__file__).resolve().parent / "pretrained_weights" / "saliency_detection"  # type: ignore
+WEIGHT_ROOT = Path("cache/hfds_builder/saliency_detection")
+assert WEIGHT_ROOT.exists(), f"{str(WEIGHT_ROOT.resolve())} does not exist."
 
 
 def main() -> None:
@@ -64,8 +65,13 @@ def main() -> None:
         raise NotImplementedError
 
     pattern = f"*.{args.input_ext}" if args.input_ext else "*"
-    for input_path in Path(args.input_dir).glob(pattern):
+    for input_path in tqdm(list(Path(args.input_dir).glob(pattern))):
         if not input_path.is_file():
+            continue
+
+        output_path = output_dir / input_path.name
+        if output_path.exists():
+            # if there already exists the output file, skip
             continue
 
         image = Image.open(input_path).convert("RGB")
@@ -75,7 +81,6 @@ def main() -> None:
         pred = torch.squeeze(F.interpolate(pred, (height, width), mode="bilinear"), 0)
         pred = _norm_pred(pred)
 
-        output_path = output_dir / input_path.name
         logger.info(f"{input_path=} {output_path=}")
         with output_path.open("wb") as f:
             save_image(pred, f)

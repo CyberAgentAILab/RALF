@@ -24,7 +24,10 @@ CVPR 2024
 
 </div>
 
-This repository aims to provide all-in-one package for `content-aware layout generation`. If you like this repository, please give it a star!
+`Content-aware graphic layout generation` aims to automatically arrange visual elements along with a given content, such as an e-commerce product image. This repository aims to provide all-in-one package for `content-aware layout generation`. If you like this repository, please give it a star!
+
+![teaser](https://udonda.github.io/RALF/static/images/teaser.png)
+In this paper, we propose `Retrieval-augmented content-aware layout generation`. We retrieve nearest neighbor examples based on the input image and use them as a reference to augment the generation process.
 
 
 ## Content
@@ -101,7 +104,7 @@ Some variables might be set (e.g., `OMP_NUM_THREADS`)
 
 ### 4. Check Checkpoints and experimental results
 
-The checkpoints and generated layouts of the Autoreg Baseline and our RALF for the unconstrained and constrained tasks are available at [google drive](https://drive.google.com/file/d/1xwHZfbLBGPp-YYTnVfSlkK33nSj914Us/view?usp=sharing).
+The checkpoints and generated layouts of the Autoreg Baseline and our RALF for the unconstrained and constrained tasks are available at [google drive](https://drive.google.com/file/d/1b357gVAnCSqMfbP3Cc2ey6LCeoohfYAi/view?usp=sharing).
 After downloading it, please run `unzip cache.zip` in this directory.
 Note that the file size is 13GB.
 
@@ -123,7 +126,7 @@ We encourage the use of these predefined splits when conducting experiments base
 
 ### IDs of retrieved samples
 We use the training split as a retrieval source. For example, when RALF is trained with the PKU, the training split of PKU is used for training and evaluation.
-We provide the pre-computed correspondense using [DreamSim \[Fu+ NeurIPS2023\]](https://dreamsim-nights.github.io/) in `data_splits/retrieval/<DATASET_NAME>`. The data structure follows below
+We provide the pre-computed correspondense using [DreamSim \[Fu+ NeurIPS23\]](https://dreamsim-nights.github.io/) in `data_splits/retrieval/<DATASET_NAME>`. The data structure follows below
 ```yaml
 FILENAME:
     - FILENAME top1

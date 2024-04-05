@@ -14,7 +14,7 @@
 </h5>
 
 <h3 align="center">
-CVPR 2024
+CVPR 2024 (Oral)
 </h3>
 
 

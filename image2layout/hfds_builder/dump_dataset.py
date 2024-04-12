@@ -1,4 +1,5 @@
 import argparse
+import json
 import logging
 import os
 from collections import defaultdict
@@ -103,6 +104,15 @@ def main() -> None:
         for key in ["split", "identifier"]:
             del record[key]
         data[new_split].append(record)
+
+    # Write global vocabulary from all the splits.
+    vocabulary: dict[str, int] = defaultdict(int)
+    for split, records in data.items():
+        for record in records:
+            for label in record["label"]:
+                vocabulary[label] += 1
+    with open(str(output_dir / "vocabulary.json"), "w") as f:
+        json.dump({"label": dict(vocabulary)}, f)
 
     logger.info("Writing to parquet files ...")
     for split, records in data.items():

@@ -237,5 +237,4 @@ multirun
 
 poetry.lock
 model_weight
-configs
 .config

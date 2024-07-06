@@ -104,7 +104,7 @@ Some variables might be set (e.g., `OMP_NUM_THREADS`)
 
 ### 4. Check Checkpoints and experimental results
 
-The checkpoints and generated layouts of the Autoreg Baseline and our RALF for the unconstrained and constrained tasks are available at [google drive](https://drive.google.com/file/d/1b357gVAnCSqMfbP3Cc2ey6LCeoohfYAi/view?usp=sharing).
+The checkpoints and generated layouts of the Autoreg Baseline and our RALF for the unconstrained and constrained tasks are available at [google drive](https://drive.google.com/file/d/1b357gVAnCSqMfbP3Cc2ey6LCeoohfYAi/view?usp=sharing) or [Microsoft OneDrive](https://univtokyo-my.sharepoint.com/:u:/g/personal/1251522283_utac_u-tokyo_ac_jp/EQ1Oe2In_0dOvPJqprZAGCMBWZAyFOaQTQlPPH5uRhFilA?e=piKxHn).
 After downloading it, please run `unzip cache.zip` in this directory.
 Note that the file size is 13GB.
 

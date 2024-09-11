@@ -102,6 +102,8 @@ DATA_ROOT="./cache/dataset"
 
 Some variables might be set (e.g., `OMP_NUM_THREADS`)
 
+Additionally, if you need `cgl_kmeans_train_clusters.pkl` and `pku10_kmeans_train_clusters.pkl`, please download them from [Google drive](https://drive.google.com/file/d/1XkYubu123dhwxB3wsEnN-iR-jOc_hGxD/view?usp=drive_link) or [One drive](https://1drv.ms/u/s!AjGupxRG928Al1PKN2XGJoB98GIZ?e=RHOhlU).
+
 ### 4. Check Checkpoints and experimental results
 
 The checkpoints and generated layouts of the Autoreg Baseline and our RALF for the unconstrained and constrained tasks are available at [google drive](https://drive.google.com/file/d/1b357gVAnCSqMfbP3Cc2ey6LCeoohfYAi/view?usp=sharing) or [Microsoft OneDrive](https://univtokyo-my.sharepoint.com/:u:/g/personal/1251522283_utac_u-tokyo_ac_jp/EQ1Oe2In_0dOvPJqprZAGCMBWZAyFOaQTQlPPH5uRhFilA?e=piKxHn).
